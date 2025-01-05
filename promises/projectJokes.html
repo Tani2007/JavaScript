@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Dad Jokes!</h1>
+        <section class="api_body"></section>
+        <button id="fetchJoke">Get Another Joke</button>
+      </div>
+      <script>
+        let apiBody = document.querySelector(".api_body")
+
+        const apiUrl = "https://icanhazdadjoke.com/";
+
+//ye header aur accept isliye likha hai kyuki yeh url ek website hai aur uska api banane ke liye likhna padta hai 
+const fetchData = () => {
+    fetch(apiUrl, {
+        headers : {
+            Accept : "application/json",
+        },
+    })
+    .then((res) => {
+        console.log(res);
+        return res.json();//wo jo res aaya tha usejson ki form me kar diya
+    })
+    .then((data) => {
+        console.log(data.joke)
+        apiBody.innerText = data.joke
+    })
+    .catch((err) => {
+        conosle.log(err)
+    })
+}
+fetchData()//first time ek joke chahiye isliye chala diya
+
+        document.getElementById("fetchJoke").addEventListener("click",fetchData);
+      </script>
+</body>
+</html>

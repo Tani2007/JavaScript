@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .domSearch{
+        text-align: center;
+        align-content: center;
+        
+    }
+    </style>
+<body>
+    <!-- Let's Start the Project of DOM -->
+ <div class="domSearch">
+    <h1>Adding the name Of Fruits</h1>
+    <div class="search">
+        <input id="input" type="text" placeholder="fruits name">
+        <button id="btn">ADD</button>
+        <div class="fruits"></div>
+    </div>
+ </div>
+ <script>
+    //Project on DOM 
+    let btn = document.getElementById("btn")
+    let input = document.querySelector("#input")
+    let fruits = document.querySelector(".fruits")
+    console.log(input)
+    console.log(btn)
+    console.log(fruits)
+
+    let addinput = () => {
+        let ptag = document.createElement("p")
+        ptag.innerText = input.value
+        fruits.append(ptag)
+        input.value = ""
+    }
+
+    btn.addEventListener("click",() => {
+        //console.log(btn) //ye sif check karne ke liye ki ye click kaam kar raha hai 
+        addinput();
+    })
+    fruits.addEventListener("click",(event) => {
+        //console.log(btn) //ye sif check karne ke liye ki ye click kaam kar raha hai 
+        console.log(event.target)
+        let currElem = event.target;
+        currElem.remove()
+    })
+
+
+     
+ </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <p id="countDown">0</p>
+        <div class="buttons">
+          <button class="start_btn">Start</button>
+          <button class="reset_btn">Reset</button>
+          <button class="stop_btn">Stop</button>
+          <button class="time_btn">getTime</button>
+          <button class="clear_btn">clearTime</button>
+        </div>
+        <div class="resetValue"></div>
+      </section>
+      <script>
+        let startBtn = document.querySelector(".start_btn")
+        let stopBtn = document.querySelector(".stop_btn")
+        let resetBtn = document.querySelector(".reset_btn")
+        let getTimeBtn = document.querySelector(".time_btn")
+        let clrTimeBtn = document.querySelector(".clear_btn")
+        let countDown = document.getElementById("countDown")
+        let getTimer = document.querySelector(".resetValue")
+        let startCount = 0
+        let sI;
+
+        let startTime = () => {
+            countDown.innerText = startCount++
+        }
+
+        let stopTime = () => {
+            clearInterval(sI)
+        }
+
+        let removeTime = () => {
+            startCount = 0
+            countDown.innerText = startCount
+            clearInterval(sI)
+        }
+
+        let getTime = () => {
+            let p = document.createElement("p")
+            p.innerText = `The Time is ${startCount}`
+            getTimer.append(p)
+            
+        }
+
+       startBtn.addEventListener("click",() => {
+        sI = setInterval(startTime,1000)
+       })
+
+       stopBtn.addEventListener("click",() => {
+        stopTime()
+       })
+       
+       resetBtn.addEventListener("click",() => {
+        removeTime()
+       })
+
+       getTimeBtn.addEventListener("click",() => {
+        getTime()
+       })
+
+       clrTimeBtn.addEventListener("click",() => {
+        getTimer.innerText = ""
+       })
+      </script>
+</body>
+</html>

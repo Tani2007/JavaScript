@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black;
+}
+h1{
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+input{
+    border-radius: 10px;
+    height: 32px;
+    background-color:  blanchedalmond;
+}
+button{
+    border-radius: 10px;
+    height: 35px;
+    width: 100px;
+    background-color: yellow;
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgba(255, 232, 28, 0.623);
+}
+form{
+    text-align: center;
+}
+.main_todo_list{
+    width: 36rem;
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+    align-items: center;
+    height: auto;
+}
+li{
+    color: white;
+    padding: 20px;
+    
+}
+.deleteBtn{
+    border-radius: 10px;
+    height: 35px;
+    width: 100px;
+    background-color: yellow;
+}
+deleteBtn:hover{
+    cursor: pointer;
+    background-color: rgba(255, 232, 28, 0.623);
+}

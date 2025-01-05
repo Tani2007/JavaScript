@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #333;
+    }
+
+    p{
+        color: #ccc;
+    }
+
+    #myList {
+      list-style: none;
+      padding: 0;
+    }
+
+    #myList li {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 5px;
+      color: #ccc;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #myList li:hover {
+      transform: scale(1.1);
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    #listValue {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #f5ee62;
+    }
+  </style>
+<body>
+    <p>Which programming Language you like the most?</p>
+    <br />
+    <ul id="myList">
+      <li>🎉 JavaScript 🎉</li>
+      <li>🎈 React 🎈</li>
+      <li>🎊 Next 🎊</li>
+      <li>🎁 HTML/CSS 🎁</li>
+    </ul>
+    <p id="listValue"></p>
+    <script>
+        //ab ham seekenhge eventDeligation jo ki sabse jyada important  hai 
+        //ab ye jo 4 li bane hai aap chahte hai ki jab mai ispe clik karunga to neehce likh kar aa jaye ki aapki fav language hai jispe bhi aap click kare to aap kya karenge chaaro par adEventListener lagenge ye to bahut lamba pad jayega aur agar li 4 se bhaut jyada hue to isoliye ye seekh lo.
+
+        //event Deligation kehta hai ki agr multiple boxes hai to rather adding eventListener to every box you should add eventListener to the parent element  
+
+        const getListDetails = (event) => {
+            console.log(event.target)//ab jispar clik karoge wahi aaega
+            document.getElementById("listValue").innerHTML = `your fav language is ${event.target.innerText}`
+        }
+
+
+
+        document.getElementById("myList").addEventListener("click",getListDetails)
+    </script>
+</body>
+</html>
