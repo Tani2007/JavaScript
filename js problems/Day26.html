@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="AllBtn">
+      <button data-category="all">all</button>
+      <button data-category="animal">animal</button>
+      <button data-category="bird">bird</button>
+      <button data-category="nature">nature</button>
+    </div>
+    <div class="AllImages">
+      <img
+        class="images"
+        data-category="animal"
+        src="./Images/dogs.jpeg"
+        alt=""
+      />
+      <img
+        class="images"
+        data-category="bird"
+        src="./Images/birds.jpeg"
+        alt=""
+      />
+      <img
+        class="images"
+        data-category="bird"
+        src="./Images/birds2.jpeg"
+        alt=""
+      />
+      <img
+        class="images"
+        data-category="nature"
+        src="./Images/mountains.jpeg"
+        alt=""
+      />
+      <img
+        class="images"
+        data-category="animal"
+        src="./Images/rabbit.jpeg"
+        alt=""
+      />
+    </div>
+  </body>
+
+  <script>
+    let Allbtn = document.querySelector(".AllBtn");
+
+    let AllImages = document.querySelectorAll(".images");
+    console.log(AllImages);
+    const filterSearch = (val) => {
+      AllImages.forEach((curElem) => {
+        if (curElem.dataset.category === val) {
+          curElem.style.display = "block";
+        } else if (val === "all") {
+          curElem.style.display = "block";
+        } else {
+          curElem.style.display = "none";
+        }
+      });
+    };
+
+    console.log(Allbtn);
+    Allbtn.addEventListener("click", (e) => {
+      console.log(e.target.dataset.category);
+      filterSearch(e.target.dataset.category);
+    });
+  </script>
+</html>

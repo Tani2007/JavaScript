@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+      }
+      button {
+        margin-top: 20px;
+        padding: 5px;
+        font-weight: bolder;
+        border-radius: 5px;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Colour-Gradient-Generator</h1>
+    <div class="color"></div>
+    <button id="copy">COPY CODE</button>
+    <button id="refresh">REFRESH</button>
+    <script>
+      const colourGenerator = () => {
+        //     let randomNumber = 0;
+        //     let arr = [];
+        //     for (let i = 0; i < 3; i++) {
+        //       randomNumber = Math.random() * 250;
+        //       arr.push(Math.floor(randomNumber));
+        //     }
+        //     console.log(arr);
+        //     document.body.style.backgroundColor = `rgb(${arr[0]},${arr[1]},${arr[2]})`;
+        let div = document.querySelector(".color");
+        let btn = document.getElementById("copy");
+        let refresh = document.getElementById("refresh");
+        let random1 = `#${Math.random().toString(16).slice(2, 8).padEnd(6, 0)}`;
+        let random2 = `#${Math.random().toString(16).slice(2, 8).padEnd(6, 0)}`;
+        let random3 = `#${Math.random().toString(16).slice(2, 8).padEnd(6, 0)}`;
+        document.body.style.backgroundImage = `linear-gradient(to right, ${random1},${random2} )`;
+        div.innerText = `background-image:  linear-gradient(to right, ${random1},${random2},${random3} )`;
+        btn.addEventListener("click", () => {
+          navigator.clipboard.writeText(
+            `background-image:  linear-gradient(to right, ${random1},${random2},${random3} )`
+          );
+          btn.innerText = "COPIED";
+        });
+        refresh.addEventListener("click", () => {
+          this.location.reload();
+        });
+      };
+      colourGenerator();
+    </script>
+  </body>
+</html>
